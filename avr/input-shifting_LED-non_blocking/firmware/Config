@@ -1,0 +1,71 @@
+#--------------------------------------------#
+#
+#	AVR Makefile suite
+#	Version : 3.1
+#	Author : Asif Mahmud Shimon
+#	Usage : Easy to configure and to use Makefile 
+#			suite for AVR platform using GNU 
+#			Compiler suite.
+#
+#--------------------------------------------#
+#--------configure the project sources-------#
+
+#project title
+TARGET = input
+
+#source and header folder
+SRC_FOLDER = src
+BIN_FOLDER = bin
+INCLUDE_FOLDER = include
+
+#-----------C SOURCES------------------------#
+C_SRC_FILES = main.c
+
+
+#----------assembly sources------------------#
+ASM_SRC_FILES = 
+
+#--------------------------------------------#
+
+#device configuration
+DEVICE = atmega8
+F_CPU  = 1000000
+LFUSE  = 0xE1
+HFUSE  = 0xD9
+EFUSE  = 
+
+#preprocessors defines
+DEFS  = 
+
+
+#libraries to link
+LD_FLAGS = 
+
+# Minimalistic printf version
+PRINTF_LIB_MIN = -Wl,-u,vfprintf -lprintf_min
+# Floating point printf version (requires MATH_LIB = -lm below)
+PRINTF_LIB_FLOAT = -Wl,-u,vfprintf -lprintf_flt
+# Minimalistic scanf version
+SCANF_LIB_MIN = -Wl,-u,vfscanf -lscanf_min
+# Floating point + %[ scanf version (requires MATH_LIB = -lm below)
+SCANF_LIB_FLOAT = -Wl,-u,vfscanf -lscanf_flt
+
+
+# If this is left blank, then it will use the Standard printf version.
+PRINTF_LIB = 
+#PRINTF_LIB = $(PRINTF_LIB_MIN)
+#PRINTF_LIB = $(PRINTF_LIB_FLOAT)
+
+# If this is left blank, then it will use the Standard scanf version.
+SCANF_LIB = 
+#SCANF_LIB = $(SCANF_LIB_MIN)
+#SCANF_LIB = $(SCANF_LIB_FLOAT)
+
+#programmer
+#if in linux use sudo
+SUDO = sudo
+DUDE = avrdude
+PROGRAMMER = usbasp
+
+
+#-------Thats all needed---------------------#
